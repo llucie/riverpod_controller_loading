@@ -14,13 +14,14 @@ class ThirdTryPage extends ConsumerWidget {
       appBar: AppBar(),
       body: load.when(
           data: (data) => Center(
-                  child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(thirdTryController.resultString, selectionColor: Colors.blueGrey),
-                  const CustomWidget(),
-                ],
-              )),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(thirdTryController.resultString, selectionColor: Colors.blueGrey),
+                    const CustomWidget(),
+                  ],
+                ),
+              ),
           error: (error, stackTrace) => Center(child: Text(error.toString())),
           loading: () => const Center(child: CircularProgressIndicator.adaptive())),
     );
