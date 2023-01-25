@@ -19,6 +19,16 @@ class ThirdTryController extends _$ThirdTryController {
   }
 }
 
+// Here the loading is a FutureProvider.
+// pros:
+//   - we can call a .when on it to build the widget when loaded, without setting manually a "loaded" boolean
+//   - the load is a Family provider, but the Controller provider is not. The controller can be retrieved with a
+// `read` or a `watch` without parameters, contrary to first try
+//
+// cons:
+//   - the load shall be called before accessing to the controller `resultString` parameter, otherwise it will raise a
+//   LateInitializationError
+
 @riverpod
 Future<void> load(Ref ref, String myRequiredString) async {
   // Call a future, such as HTTP get, using myRequiredInt and myRequiredString, and returning a String resultString
